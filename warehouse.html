@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مخزن دير الأنبا شنودة رئيس المتوحدين - الزرابي</title>
+<title>كنيسة الأنبا شنودة رئيس المتوحدين بالزرابي - المخزن</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --parchment:#F6F0E4;
-    --parchment-deep:#EFE6D3;
-    --ink:#2B2118;
-    --ink-soft:#5C5142;
-    --maroon:#7A2A2E;
-    --maroon-deep:#5B1F22;
-    --gold:#B8862B;
-    --gold-soft:#D9B876;
-    --pine:#39584E;
-    --pine-soft:#4F7166;
-    --line:#DBCFB5;
-    --card:#FCF9F1;
-    --danger:#A23B33;
+    --parchment:#F4EFE3;
+    --parchment-deep:#EBE2CB;
+    --ink:#24211B;
+    --ink-soft:#5E5847;
+    --indigo:#1F3D5C;
+    --indigo-deep:#152A40;
+    --gold:#A9782F;
+    --gold-soft:#D4AD6B;
+    --teal:#2F6B5E;
+    --teal-soft:#4B8577;
+    --line:#DDD3BC;
+    --card:#FBF8F0;
+    --danger:#B23A2E;
     --radius-lg:18px;
     --radius-sm:8px;
   }
@@ -29,33 +29,33 @@
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --parchment:#1D1712;
-      --parchment-deep:#241C15;
-      --ink:#EFE6D3;
-      --ink-soft:#C7B99B;
-      --card:#2A2119;
-      --line:#453A2A;
-      --maroon:#C1595D;
-      --maroon-deep:#9C4448;
-      --gold:#D9B876;
-      --gold-soft:#B8862B;
-      --pine:#6E9587;
-      --pine-soft:#7FA697;
+      --parchment:#181C20;
+      --parchment-deep:#1F252B;
+      --ink:#E9E4D6;
+      --ink-soft:#B9B2A0;
+      --card:#222831;
+      --line:#39424C;
+      --indigo:#6C93BE;
+      --indigo-deep:#4E749F;
+      --gold:#D4AD6B;
+      --gold-soft:#A9782F;
+      --teal:#6FA396;
+      --teal-soft:#4B8577;
     }
   }
   :root[data-theme="dark"]{
-    --parchment:#1D1712;
-    --parchment-deep:#241C15;
-    --ink:#EFE6D3;
-    --ink-soft:#C7B99B;
-    --card:#2A2119;
-    --line:#453A2A;
-    --maroon:#C1595D;
-    --maroon-deep:#9C4448;
-    --gold:#D9B876;
-    --gold-soft:#B8862B;
-    --pine:#6E9587;
-    --pine-soft:#7FA697;
+    --parchment:#181C20;
+    --parchment-deep:#1F252B;
+    --ink:#E9E4D6;
+    --ink-soft:#B9B2A0;
+    --card:#222831;
+    --line:#39424C;
+    --indigo:#6C93BE;
+    --indigo-deep:#4E749F;
+    --gold:#D4AD6B;
+    --gold-soft:#A9782F;
+    --teal:#6FA396;
+    --teal-soft:#4B8577;
   }
 
   *{box-sizing:border-box;}
@@ -70,9 +70,48 @@
     padding-bottom:60px;
   }
 
+  /* ---------- login gate ---------- */
+  #loginGate{
+    position:fixed; inset:0; z-index:100;
+    display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(1200px 500px at 15% -10%, var(--parchment-deep), transparent),
+      var(--parchment);
+    padding:20px;
+  }
+  #loginGate.hidden{display:none;}
+  .login-card{
+    width:100%; max-width:360px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:32px 28px;
+    box-shadow:0 18px 40px -18px rgba(21,42,64,.35);
+    text-align:center;
+  }
+  .login-card .mark{width:44px;height:44px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;}
+  .login-card h1{
+    font-family:'Markazi Text', serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--indigo-deep);
+    margin:0 0 4px;
+  }
+  .login-card p.sub{margin:0 0 22px; color:var(--ink-soft); font-size:13.5px; font-weight:500;}
+  .login-card label{text-align:right;}
+  .login-card .field{margin-bottom:14px; text-align:right;}
+  .login-card .btn{width:100%; margin-top:6px;}
+  .login-error{
+    color:var(--danger); font-size:13px; font-weight:700;
+    margin-top:10px; min-height:18px;
+  }
+  #appRoot{display:none;}
+  #appRoot.visible{display:block;}
+
   .crown{
     text-align:center;
     padding:34px 20px 18px;
+    position:relative;
   }
   .crown .mark{
     width:52px;height:52px;margin:0 auto 12px;
@@ -81,8 +120,8 @@
   .crown h1{
     font-family:'Markazi Text', serif;
     font-weight:700;
-    font-size:clamp(28px,4.4vw,42px);
-    color:var(--maroon-deep);
+    font-size:clamp(26px,4.2vw,40px);
+    color:var(--indigo-deep);
     margin:0 0 6px;
     letter-spacing:.5px;
   }
@@ -97,6 +136,26 @@
     background:linear-gradient(90deg, transparent, var(--gold), transparent);
     border-radius:3px;
   }
+  .logout-btn{
+    position:absolute; left:20px; top:34px;
+    font-family:'Tajawal',sans-serif;
+    font-size:13px; font-weight:700;
+    padding:7px 14px;
+    border-radius:999px;
+    border:1.5px solid var(--line);
+    background:var(--card);
+    color:var(--ink-soft);
+    cursor:pointer;
+  }
+  .logout-btn:hover{border-color:var(--danger); color:var(--danger);}
+
+  .sync-note{
+    text-align:center; font-size:12.5px; color:var(--ink-soft);
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    margin-top:6px;
+  }
+  .sync-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);}
+  .sync-dot.off{background:var(--danger);}
 
   nav{
     max-width:980px;
@@ -121,10 +180,10 @@
   }
   nav button:hover{border-color:var(--gold-soft);color:var(--ink);}
   nav button.active{
-    background:var(--maroon);
-    border-color:var(--maroon);
-    color:#F8EFE0;
-    box-shadow:0 4px 14px -6px rgba(122,42,46,.55);
+    background:var(--indigo);
+    border-color:var(--indigo);
+    color:#F5F1E4;
+    box-shadow:0 4px 14px -6px rgba(31,61,92,.55);
   }
 
   main{
@@ -140,7 +199,7 @@
     font-family:'Markazi Text',serif;
     font-size:26px;
     font-weight:700;
-    color:var(--maroon-deep);
+    color:var(--indigo-deep);
     margin:0 0 18px;
     display:flex;
     align-items:center;
@@ -176,8 +235,8 @@
     margin-top:4px;
     color:var(--ink);
   }
-  .stat-card.in{border-inline-start:4px solid var(--pine);}
-  .stat-card.out{border-inline-start:4px solid var(--maroon);}
+  .stat-card.in{border-inline-start:4px solid var(--teal);}
+  .stat-card.out{border-inline-start:4px solid var(--indigo);}
   .stat-card.items{border-inline-start:4px solid var(--gold);}
   .stat-card.alert{border-inline-start:4px solid var(--danger);}
 
@@ -216,7 +275,7 @@
   }
   input:focus, select:focus, textarea:focus{
     border-color:var(--gold);
-    box-shadow:0 0 0 3px rgba(184,134,43,.18);
+    box-shadow:0 0 0 3px rgba(169,120,47,.18);
   }
   textarea{resize:vertical;min-height:40px;}
 
@@ -230,13 +289,14 @@
     cursor:pointer;
     transition:.15s;
   }
-  .btn-primary{background:var(--maroon); color:#F8EFE0;}
-  .btn-primary:hover{background:var(--maroon-deep);}
-  .btn-pine{background:var(--pine); color:#F3F8F5;}
-  .btn-pine:hover{background:var(--pine-soft);}
+  .btn-primary{background:var(--indigo); color:#F5F1E4;}
+  .btn-primary:hover{background:var(--indigo-deep);}
+  .btn-pine{background:var(--teal); color:#F3F8F5;}
+  .btn-pine:hover{background:var(--teal-soft);}
   .btn-ghost{background:transparent;border:1.5px solid var(--line); color:var(--ink-soft);}
   .btn-ghost:hover{border-color:var(--danger); color:var(--danger);}
   .btn-sm{padding:6px 12px;font-size:13px;border-radius:7px;}
+  .btn:disabled{opacity:.55; cursor:not-allowed;}
 
   table{width:100%; border-collapse:collapse; font-size:14px;}
   thead th{
@@ -252,7 +312,7 @@
     border-bottom:1px solid var(--line);
     color:var(--ink);
   }
-  tbody tr:hover{background:rgba(184,134,43,.06);}
+  tbody tr:hover{background:rgba(169,120,47,.08);}
   .tbl-wrap{overflow-x:auto;}
   .tag{
     display:inline-block;
@@ -261,10 +321,10 @@
     padding:2px 9px;
     border-radius:999px;
   }
-  .tag.in{background:rgba(57,88,78,.15); color:var(--pine);}
-  .tag.out{background:rgba(122,42,46,.15); color:var(--maroon);}
-  .tag.low{background:rgba(162,59,51,.16); color:var(--danger);}
-  .tag.ok{background:rgba(57,88,78,.15); color:var(--pine);}
+  .tag.in{background:rgba(47,107,94,.15); color:var(--teal);}
+  .tag.out{background:rgba(31,61,92,.15); color:var(--indigo);}
+  .tag.low{background:rgba(178,58,46,.16); color:var(--danger);}
+  .tag.ok{background:rgba(47,107,94,.15); color:var(--teal);}
 
   .empty{
     text-align:center;
@@ -294,21 +354,53 @@
 
   @media (max-width:640px){
     .toolbar{flex-direction:column; align-items:stretch;}
+    .logout-btn{position:static; display:block; margin:10px auto 0;}
   }
 </style>
 </head>
 <body>
 
+<!-- ================= LOGIN GATE ================= -->
+<div id="loginGate">
+  <div class="login-card">
+    <div class="mark">
+      <svg width="40" height="40" viewBox="0 0 46 46" fill="none">
+        <circle cx="23" cy="23" r="21" stroke="var(--gold)" stroke-width="1.5"/>
+        <path d="M23 10V36M14 16H32" stroke="var(--indigo)" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M17 21C17 21 20 18 23 21C26 24 29 21 29 21" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <h1>كنيسة الأنبا شنودة رئيس المتوحدين بالزرابي</h1>
+    <p class="sub">تسجيل الدخول لمتابعة المخزن</p>
+    <form id="loginForm">
+      <div class="field">
+        <label>اسم المستخدم</label>
+        <input type="text" id="loginUser" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label>كلمة المرور</label>
+        <input type="password" id="loginPass" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">دخول</button>
+      <div class="login-error" id="loginError"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= APP ================= -->
+<div id="appRoot">
+
 <div class="crown">
+  <button class="logout-btn" id="logoutBtn" type="button">تسجيل الخروج</button>
   <div class="mark">
     <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
       <circle cx="23" cy="23" r="21" stroke="var(--gold)" stroke-width="1.5"/>
-      <path d="M23 10V36M14 16H32" stroke="var(--maroon)" stroke-width="2.4" stroke-linecap="round"/>
-      <path d="M17 21C17 21 20 18 23 21C26 24 29 21 29 21" stroke="var(--pine)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <path d="M23 10V36M14 16H32" stroke="var(--indigo)" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M17 21C17 21 20 18 23 21C26 24 29 21 29 21" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
     </svg>
   </div>
-  <h1>مخزن دير الأنبا شنودة رئيس المتوحدين</h1>
-  <p>الزرابي — نظام إدارة الوارد والصادر والأرصدة</p>
+  <h1>كنيسة الأنبا شنودة رئيس المتوحدين بالزرابي</h1>
+  <p>نظام إدارة مخزن الوارد والصادر والأرصدة</p>
   <div class="rule"></div>
 </div>
 
@@ -526,374 +618,416 @@
 <footer>البيانات محفوظة على هذا الجهاز داخل المتصفح فقط.</footer>
 <div class="toast" id="toast"></div>
 
+</div><!-- /appRoot -->
+
 <script>
 (function(){
-  const STORE_KEY = 'zarabi_monastery_warehouse_v1';
+  const AUTH_KEY = 'zarabi_auth_ok_v1';
+  const VALID_USER = 'popa';
+  const VALID_PASS = 'popa@123';
 
-  function load(){
-    try{
-      const raw = localStorage.getItem(STORE_KEY);
-      if(raw) return JSON.parse(raw);
-    }catch(e){ console.error('load failed', e); }
-    return { items: [], incoming: [], outgoing: [] };
-  }
-  function save(){
-    try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
-    catch(e){ console.error('save failed', e); toast('تعذر حفظ البيانات على هذا الجهاز'); }
-  }
+  const loginGate = document.getElementById('loginGate');
+  const appRoot = document.getElementById('appRoot');
+  const loginForm = document.getElementById('loginForm');
+  const loginError = document.getElementById('loginError');
 
-  let state = load();
-  let uidCounter = Date.now();
-  function uid(){ return (uidCounter++).toString(36); }
-
-  // ---------- tabs ----------
-  const navButtons = document.querySelectorAll('nav button');
-  navButtons.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      navButtons.forEach(b=>b.classList.remove('active'));
-      document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-      if(btn.dataset.tab==='dash') renderDash();
-      if(btn.dataset.tab==='log') renderLog();
-    });
-  });
-
-  function toast(msg){
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    clearTimeout(t._timer);
-    t._timer = setTimeout(()=>t.classList.remove('show'), 2200);
+  function showApp(){
+    loginGate.classList.add('hidden');
+    appRoot.classList.add('visible');
+    initApp();
   }
 
-  function todayStr(){
-    const d = new Date();
-    return d.toISOString().slice(0,10);
-  }
-  document.getElementById('inDate').value = todayStr();
-  document.getElementById('outDate').value = todayStr();
-
-  // ---------- calculations ----------
-  function itemTotals(itemId){
-    const totalIn = state.incoming.filter(r=>r.itemId===itemId).reduce((s,r)=>s+r.qty,0);
-    const totalOut = state.outgoing.filter(r=>r.itemId===itemId).reduce((s,r)=>s+r.qty,0);
-    const item = state.items.find(i=>i.id===itemId);
-    const opening = item ? Number(item.opening||0) : 0;
-    return { totalIn, totalOut, balance: opening + totalIn - totalOut };
+  if(localStorage.getItem(AUTH_KEY) === '1'){
+    showApp();
   }
 
-  function fmt(n){
-    n = Math.round(n*100)/100;
-    return n.toLocaleString('ar-EG');
-  }
-
-  // ---------- items ----------
-  function renderItemSelects(){
-    const selects = [document.getElementById('inItem'), document.getElementById('outItem'), document.getElementById('logItem')];
-    const dashSearchVal = '';
-    selects.forEach(sel=>{
-      const isLog = sel.id==='logItem';
-      const current = sel.value;
-      sel.innerHTML = isLog ? '<option value="all">كل الأصناف</option>' : '';
-      state.items.forEach(it=>{
-        const opt = document.createElement('option');
-        opt.value = it.id;
-        opt.textContent = it.name + ' (' + it.unit + ')';
-        sel.appendChild(opt);
-      });
-      if(current) sel.value = current;
-    });
-  }
-
-  function renderItemsTable(filter){
-    const tbody = document.getElementById('itemsTable');
-    tbody.innerHTML = '';
-    const q = (filter||'').trim();
-    const list = state.items.filter(it=> !q || it.name.includes(q));
-    document.getElementById('itemsEmpty').style.display = list.length ? 'none':'block';
-    list.forEach(it=>{
-      const {balance} = itemTotals(it.id);
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${escapeHtml(it.name)}</td>
-        <td>${escapeHtml(it.unit)}</td>
-        <td>${fmt(it.opening||0)}</td>
-        <td>${it.min ? fmt(it.min) : '—'}</td>
-        <td><strong>${fmt(balance)}</strong></td>
-        <td><button class="btn btn-ghost btn-sm" data-del-item="${it.id}">حذف</button></td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-
-  document.getElementById('itemForm').addEventListener('submit', e=>{
+  loginForm.addEventListener('submit', e=>{
     e.preventDefault();
-    const name = document.getElementById('itemName').value.trim();
-    const unit = document.getElementById('itemUnit').value.trim();
-    const opening = Number(document.getElementById('itemOpening').value || 0);
-    const min = document.getElementById('itemMin').value;
-    if(!name || !unit) return;
-    state.items.push({ id: uid(), name, unit, opening, min: min ? Number(min) : null });
-    save();
-    e.target.reset();
-    document.getElementById('itemOpening').value = 0;
-    renderItemSelects();
-    renderItemsTable(document.getElementById('itemsSearch').value);
-    renderDash();
-    toast('تم إضافة الصنف');
-  });
-
-  document.getElementById('itemsTable').addEventListener('click', e=>{
-    const id = e.target.getAttribute('data-del-item');
-    if(!id) return;
-    const hasMoves = state.incoming.some(r=>r.itemId===id) || state.outgoing.some(r=>r.itemId===id);
-    if(hasMoves && !confirm('هذا الصنف له حركات وارد أو صادر مسجلة. حذفه سيحذف كل حركاته أيضًا. هل تريد المتابعة؟')) return;
-    state.items = state.items.filter(i=>i.id!==id);
-    state.incoming = state.incoming.filter(r=>r.itemId!==id);
-    state.outgoing = state.outgoing.filter(r=>r.itemId!==id);
-    save();
-    renderItemSelects();
-    renderItemsTable(document.getElementById('itemsSearch').value);
-    renderIncomingTable();
-    renderOutgoingTable();
-    renderDash();
-    toast('تم حذف الصنف');
-  });
-
-  document.getElementById('itemsSearch').addEventListener('input', e=> renderItemsTable(e.target.value));
-  document.getElementById('dashSearch').addEventListener('input', e=> renderDash(e.target.value));
-
-  // ---------- incoming ----------
-  document.getElementById('inForm').addEventListener('submit', e=>{
-    e.preventDefault();
-    const itemId = document.getElementById('inItem').value;
-    const qty = Number(document.getElementById('inQty').value);
-    const date = document.getElementById('inDate').value;
-    const source = document.getElementById('inSource').value.trim();
-    const note = document.getElementById('inNote').value.trim();
-    if(!itemId){ toast('أضف صنفًا أولًا من تبويب الأصناف'); return; }
-    if(!qty || qty<=0) return;
-    state.incoming.push({ id: uid(), itemId, qty, date, source, note });
-    save();
-    e.target.reset();
-    document.getElementById('inDate').value = todayStr();
-    renderIncomingTable();
-    renderDash();
-    toast('تم تسجيل الوارد');
-  });
-
-  function renderIncomingTable(){
-    const tbody = document.getElementById('inTable');
-    tbody.innerHTML = '';
-    const rows = [...state.incoming].sort((a,b)=> b.date.localeCompare(a.date));
-    document.getElementById('inEmpty').style.display = rows.length ? 'none' : 'block';
-    rows.forEach(r=>{
-      const item = state.items.find(i=>i.id===r.itemId);
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${r.date}</td>
-        <td>${item ? escapeHtml(item.name) : '—'}</td>
-        <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
-        <td>${escapeHtml(r.source||'—')}</td>
-        <td>${escapeHtml(r.note||'—')}</td>
-        <td><button class="btn btn-ghost btn-sm" data-del-in="${r.id}">حذف</button></td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-  document.getElementById('inTable').addEventListener('click', e=>{
-    const id = e.target.getAttribute('data-del-in');
-    if(!id) return;
-    state.incoming = state.incoming.filter(r=>r.id!==id);
-    save();
-    renderIncomingTable();
-    renderDash();
-    toast('تم حذف الحركة');
-  });
-
-  // ---------- outgoing ----------
-  document.getElementById('outForm').addEventListener('submit', e=>{
-    e.preventDefault();
-    const itemId = document.getElementById('outItem').value;
-    const qty = Number(document.getElementById('outQty').value);
-    const date = document.getElementById('outDate').value;
-    const dest = document.getElementById('outDest').value.trim();
-    const note = document.getElementById('outNote').value.trim();
-    const warnEl = document.getElementById('outWarning');
-    warnEl.style.display = 'none';
-    if(!itemId){ toast('أضف صنفًا أولًا من تبويب الأصناف'); return; }
-    if(!qty || qty<=0) return;
-    const {balance} = itemTotals(itemId);
-    if(qty > balance){
-      warnEl.textContent = `تنبيه: الكمية المطلوب صرفها (${fmt(qty)}) أكبر من الرصيد الحالي (${fmt(balance)}). تم تسجيل الحركة رغم ذلك.`;
-      warnEl.style.display = 'block';
+    const u = document.getElementById('loginUser').value.trim();
+    const p = document.getElementById('loginPass').value;
+    if(u === VALID_USER && p === VALID_PASS){
+      localStorage.setItem(AUTH_KEY, '1');
+      loginError.textContent = '';
+      showApp();
+    }else{
+      loginError.textContent = 'اسم المستخدم أو كلمة المرور غير صحيحة';
     }
-    state.outgoing.push({ id: uid(), itemId, qty, date, dest, note });
-    save();
-    e.target.reset();
+  });
+
+  document.getElementById('logoutBtn').addEventListener('click', ()=>{
+    localStorage.removeItem(AUTH_KEY);
+    location.reload();
+  });
+
+  // ================= APP (runs only after login) =================
+  let appInitialized = false;
+  async function initApp(){
+    if(appInitialized) return;
+    appInitialized = true;
+
+    const STORE_KEY = 'zarabi_monastery_warehouse_v1';
+    function loadStore(){
+      try{
+        const raw = localStorage.getItem(STORE_KEY);
+        if(raw) return JSON.parse(raw);
+      }catch(e){ console.error('load failed', e); }
+      return { items: [], incoming: [], outgoing: [] };
+    }
+    function saveStore(){
+      try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
+      catch(e){ console.error('save failed', e); toast('تعذر حفظ البيانات على هذا الجهاز'); }
+    }
+
+    const state = loadStore();
+    let uidCounter = Date.now();
+    function localUid(){ return (uidCounter++).toString(36); }
+
+    // ---------- tabs ----------
+    const navButtons = document.querySelectorAll('nav button');
+    navButtons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        navButtons.forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+        if(btn.dataset.tab==='dash') renderDash();
+        if(btn.dataset.tab==='log') renderLog();
+      });
+    });
+
+    function toast(msg){
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(()=>t.classList.remove('show'), 2200);
+    }
+
+    function todayStr(){
+      const d = new Date();
+      return d.toISOString().slice(0,10);
+    }
+    document.getElementById('inDate').value = todayStr();
     document.getElementById('outDate').value = todayStr();
-    renderOutgoingTable();
-    renderDash();
-    toast('تم تسجيل الصادر');
-  });
 
-  function renderOutgoingTable(){
-    const tbody = document.getElementById('outTable');
-    tbody.innerHTML = '';
-    const rows = [...state.outgoing].sort((a,b)=> b.date.localeCompare(a.date));
-    document.getElementById('outEmpty').style.display = rows.length ? 'none' : 'block';
-    rows.forEach(r=>{
-      const item = state.items.find(i=>i.id===r.itemId);
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${r.date}</td>
-        <td>${item ? escapeHtml(item.name) : '—'}</td>
-        <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
-        <td>${escapeHtml(r.dest||'—')}</td>
-        <td>${escapeHtml(r.note||'—')}</td>
-        <td><button class="btn btn-ghost btn-sm" data-del-out="${r.id}">حذف</button></td>
-      `;
-      tbody.appendChild(tr);
+    // ---------- calculations ----------
+    function itemTotals(itemId){
+      const totalIn = state.incoming.filter(r=>r.itemId===itemId).reduce((s,r)=>s+r.qty,0);
+      const totalOut = state.outgoing.filter(r=>r.itemId===itemId).reduce((s,r)=>s+r.qty,0);
+      const item = state.items.find(i=>i.id===itemId);
+      const opening = item ? Number(item.opening||0) : 0;
+      return { totalIn, totalOut, balance: opening + totalIn - totalOut };
+    }
+
+    function fmt(n){
+      n = Math.round(n*100)/100;
+      return n.toLocaleString('ar-EG');
+    }
+
+    // ---------- items ----------
+    function renderItemSelects(){
+      const selects = [document.getElementById('inItem'), document.getElementById('outItem'), document.getElementById('logItem')];
+      selects.forEach(sel=>{
+        const isLog = sel.id==='logItem';
+        const current = sel.value;
+        sel.innerHTML = isLog ? '<option value="all">كل الأصناف</option>' : '';
+        state.items.forEach(it=>{
+          const opt = document.createElement('option');
+          opt.value = it.id;
+          opt.textContent = it.name + ' (' + it.unit + ')';
+          sel.appendChild(opt);
+        });
+        if(current) sel.value = current;
+      });
+    }
+
+    function renderItemsTable(filter){
+      const tbody = document.getElementById('itemsTable');
+      tbody.innerHTML = '';
+      const q = (filter||'').trim();
+      const list = state.items.filter(it=> !q || it.name.includes(q));
+      document.getElementById('itemsEmpty').style.display = list.length ? 'none':'block';
+      list.forEach(it=>{
+        const {balance} = itemTotals(it.id);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${escapeHtml(it.name)}</td>
+          <td>${escapeHtml(it.unit)}</td>
+          <td>${fmt(it.opening||0)}</td>
+          <td>${it.min ? fmt(it.min) : '—'}</td>
+          <td><strong>${fmt(balance)}</strong></td>
+          <td><button class="btn btn-ghost btn-sm" data-del-item="${it.id}">حذف</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.getElementById('itemForm').addEventListener('submit', async e=>{
+      e.preventDefault();
+      const name = document.getElementById('itemName').value.trim();
+      const unit = document.getElementById('itemUnit').value.trim();
+      const opening = Number(document.getElementById('itemOpening').value || 0);
+      const min = document.getElementById('itemMin').value;
+      if(!name || !unit) return;
+      const data = { name, unit, opening, min: min ? Number(min) : null };
+      await addRecord('items', data);
+      e.target.reset();
+      document.getElementById('itemOpening').value = 0;
+      toast('تم إضافة الصنف');
     });
+
+    document.getElementById('itemsTable').addEventListener('click', async e=>{
+      const id = e.target.getAttribute('data-del-item');
+      if(!id) return;
+      const hasMoves = state.incoming.some(r=>r.itemId===id) || state.outgoing.some(r=>r.itemId===id);
+      if(hasMoves && !confirm('هذا الصنف له حركات وارد أو صادر مسجلة. حذفه سيحذف كل حركاته أيضًا. هل تريد المتابعة؟')) return;
+      const relatedIn = state.incoming.filter(r=>r.itemId===id);
+      const relatedOut = state.outgoing.filter(r=>r.itemId===id);
+      await deleteRecord('items', id);
+      for(const r of relatedIn) await deleteRecord('incoming', r.id);
+      for(const r of relatedOut) await deleteRecord('outgoing', r.id);
+      toast('تم حذف الصنف');
+    });
+
+    document.getElementById('itemsSearch').addEventListener('input', e=> renderItemsTable(e.target.value));
+    document.getElementById('dashSearch').addEventListener('input', e=> renderDash(e.target.value));
+
+    // ---------- incoming ----------
+    document.getElementById('inForm').addEventListener('submit', async e=>{
+      e.preventDefault();
+      const itemId = document.getElementById('inItem').value;
+      const qty = Number(document.getElementById('inQty').value);
+      const date = document.getElementById('inDate').value;
+      const source = document.getElementById('inSource').value.trim();
+      const note = document.getElementById('inNote').value.trim();
+      if(!itemId){ toast('أضف صنفًا أولًا من تبويب الأصناف'); return; }
+      if(!qty || qty<=0) return;
+      await addRecord('incoming', { itemId, qty, date, source, note });
+      e.target.reset();
+      document.getElementById('inDate').value = todayStr();
+      toast('تم تسجيل الوارد');
+    });
+
+    function renderIncomingTable(){
+      const tbody = document.getElementById('inTable');
+      tbody.innerHTML = '';
+      const rows = [...state.incoming].sort((a,b)=> b.date.localeCompare(a.date));
+      document.getElementById('inEmpty').style.display = rows.length ? 'none' : 'block';
+      rows.forEach(r=>{
+        const item = state.items.find(i=>i.id===r.itemId);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.date}</td>
+          <td>${item ? escapeHtml(item.name) : '—'}</td>
+          <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
+          <td>${escapeHtml(r.source||'—')}</td>
+          <td>${escapeHtml(r.note||'—')}</td>
+          <td><button class="btn btn-ghost btn-sm" data-del-in="${r.id}">حذف</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+    document.getElementById('inTable').addEventListener('click', async e=>{
+      const id = e.target.getAttribute('data-del-in');
+      if(!id) return;
+      await deleteRecord('incoming', id);
+      toast('تم حذف الحركة');
+    });
+
+    // ---------- outgoing ----------
+    document.getElementById('outForm').addEventListener('submit', async e=>{
+      e.preventDefault();
+      const itemId = document.getElementById('outItem').value;
+      const qty = Number(document.getElementById('outQty').value);
+      const date = document.getElementById('outDate').value;
+      const dest = document.getElementById('outDest').value.trim();
+      const note = document.getElementById('outNote').value.trim();
+      const warnEl = document.getElementById('outWarning');
+      warnEl.style.display = 'none';
+      if(!itemId){ toast('أضف صنفًا أولًا من تبويب الأصناف'); return; }
+      if(!qty || qty<=0) return;
+      const {balance} = itemTotals(itemId);
+      if(qty > balance){
+        warnEl.textContent = `تنبيه: الكمية المطلوب صرفها (${fmt(qty)}) أكبر من الرصيد الحالي (${fmt(balance)}). تم تسجيل الحركة رغم ذلك.`;
+        warnEl.style.display = 'block';
+      }
+      await addRecord('outgoing', { itemId, qty, date, dest, note });
+      e.target.reset();
+      document.getElementById('outDate').value = todayStr();
+      toast('تم تسجيل الصادر');
+    });
+
+    function renderOutgoingTable(){
+      const tbody = document.getElementById('outTable');
+      tbody.innerHTML = '';
+      const rows = [...state.outgoing].sort((a,b)=> b.date.localeCompare(a.date));
+      document.getElementById('outEmpty').style.display = rows.length ? 'none' : 'block';
+      rows.forEach(r=>{
+        const item = state.items.find(i=>i.id===r.itemId);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.date}</td>
+          <td>${item ? escapeHtml(item.name) : '—'}</td>
+          <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
+          <td>${escapeHtml(r.dest||'—')}</td>
+          <td>${escapeHtml(r.note||'—')}</td>
+          <td><button class="btn btn-ghost btn-sm" data-del-out="${r.id}">حذف</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+    document.getElementById('outTable').addEventListener('click', async e=>{
+      const id = e.target.getAttribute('data-del-out');
+      if(!id) return;
+      await deleteRecord('outgoing', id);
+      toast('تم حذف الحركة');
+    });
+
+    // ---------- dashboard ----------
+    function renderDash(searchVal){
+      const totalIn = state.incoming.reduce((s,r)=>s+r.qty,0);
+      const totalOut = state.outgoing.reduce((s,r)=>s+r.qty,0);
+      document.getElementById('statIn').textContent = fmt(totalIn);
+      document.getElementById('statOut').textContent = fmt(totalOut);
+      document.getElementById('statItems').textContent = state.items.length;
+
+      const q = (searchVal!==undefined ? searchVal : document.getElementById('dashSearch').value || '').trim();
+      const tbody = document.getElementById('dashTable');
+      tbody.innerHTML = '';
+      let lowCount = 0;
+      const list = state.items.filter(it=> !q || it.name.includes(q));
+      document.getElementById('dashEmpty').style.display = state.items.length ? 'none' : 'block';
+      list.forEach(it=>{
+        const {totalIn, totalOut, balance} = itemTotals(it.id);
+        const isLow = it.min!==null && it.min!==undefined && balance <= Number(it.min);
+        if(it.min!==null && it.min!==undefined && balance <= Number(it.min)) lowCount++;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${escapeHtml(it.name)}</td>
+          <td>${escapeHtml(it.unit)}</td>
+          <td>${fmt(totalIn)}</td>
+          <td>${fmt(totalOut)}</td>
+          <td><strong>${fmt(balance)}</strong></td>
+          <td>${isLow ? '<span class="tag low">أقل من الحد</span>' : '<span class="tag ok">جيد</span>'}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+      document.getElementById('statLow').textContent = lowCount;
+    }
+
+    // ---------- log ----------
+    function renderLog(){
+      const type = document.getElementById('logType').value;
+      const itemFilter = document.getElementById('logItem').value;
+      const from = document.getElementById('logFrom').value;
+      const to = document.getElementById('logTo').value;
+
+      let rows = [];
+      if(type!=='out') state.incoming.forEach(r=> rows.push({...r, kind:'in'}));
+      if(type!=='in') state.outgoing.forEach(r=> rows.push({...r, kind:'out'}));
+
+      rows = rows.filter(r=>{
+        if(itemFilter!=='all' && r.itemId!==itemFilter) return false;
+        if(from && r.date < from) return false;
+        if(to && r.date > to) return false;
+        return true;
+      });
+      rows.sort((a,b)=> b.date.localeCompare(a.date));
+
+      const tbody = document.getElementById('logTable');
+      tbody.innerHTML = '';
+      document.getElementById('logEmpty').style.display = rows.length ? 'none' : 'block';
+      rows.forEach(r=>{
+        const item = state.items.find(i=>i.id===r.itemId);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.kind==='in' ? '<span class="tag in">وارد</span>' : '<span class="tag out">صادر</span>'}</td>
+          <td>${r.date}</td>
+          <td>${item?escapeHtml(item.name):'—'}</td>
+          <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
+          <td>${escapeHtml((r.kind==='in'?r.source:r.dest)||'—')}</td>
+          <td>${escapeHtml(r.note||'—')}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      const inSum = rows.filter(r=>r.kind==='in').reduce((s,r)=>s+r.qty,0);
+      const outSum = rows.filter(r=>r.kind==='out').reduce((s,r)=>s+r.qty,0);
+      document.getElementById('logSummary').textContent =
+        `عدد الحركات: ${rows.length} — إجمالي الوارد: ${fmt(inSum)} — إجمالي الصادر: ${fmt(outSum)}`;
+
+      window._logRows = rows;
+    }
+
+    ['logType','logItem','logFrom','logTo'].forEach(id=>{
+      document.getElementById(id).addEventListener('change', renderLog);
+    });
+    document.getElementById('logReset').addEventListener('click', ()=>{
+      document.getElementById('logType').value = 'all';
+      document.getElementById('logItem').value = 'all';
+      document.getElementById('logFrom').value = '';
+      document.getElementById('logTo').value = '';
+      renderLog();
+    });
+
+    document.getElementById('exportCsv').addEventListener('click', ()=>{
+      const rows = window._logRows || [];
+      if(!rows.length){ toast('لا توجد بيانات للتصدير'); return; }
+      let csv = 'النوع,التاريخ,الصنف,الكمية,الوحدة,الجهة,ملاحظات\n';
+      rows.forEach(r=>{
+        const item = state.items.find(i=>i.id===r.itemId);
+        const line = [
+          r.kind==='in'?'وارد':'صادر',
+          r.date,
+          item?item.name:'',
+          r.qty,
+          item?item.unit:'',
+          (r.kind==='in'?r.source:r.dest)||'',
+          r.note||''
+        ].map(v=> `"${String(v).replace(/"/g,'""')}"`).join(',');
+        csv += line + '\n';
+      });
+      const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'سجل_مخزن_كنيسة_الانبا_شنودة.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    function escapeHtml(str){
+      if(str===undefined || str===null) return '';
+      return String(str).replace(/[&<>"']/g, s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+    }
+
+    function renderAll(){
+      renderItemSelects();
+      renderItemsTable(document.getElementById('itemsSearch').value);
+      renderIncomingTable();
+      renderOutgoingTable();
+      renderDash();
+      renderLog();
+    }
+
+    // ---------- persistence layer: browser localStorage ----------
+    async function addRecord(collection, data){
+      const rec = Object.assign({ id: localUid() }, data);
+      state[collection].push(rec);
+      saveStore();
+      renderAll();
+    }
+
+    async function deleteRecord(collection, id){
+      state[collection] = state[collection].filter(r=>r.id!==id);
+      saveStore();
+      renderAll();
+    }
+
+    renderAll();
   }
-  document.getElementById('outTable').addEventListener('click', e=>{
-    const id = e.target.getAttribute('data-del-out');
-    if(!id) return;
-    state.outgoing = state.outgoing.filter(r=>r.id!==id);
-    save();
-    renderOutgoingTable();
-    renderDash();
-    toast('تم حذف الحركة');
-  });
-
-  // ---------- dashboard ----------
-  function renderDash(searchVal){
-    const totalIn = state.incoming.reduce((s,r)=>s+r.qty,0);
-    const totalOut = state.outgoing.reduce((s,r)=>s+r.qty,0);
-    document.getElementById('statIn').textContent = fmt(totalIn);
-    document.getElementById('statOut').textContent = fmt(totalOut);
-    document.getElementById('statItems').textContent = state.items.length;
-
-    const q = (searchVal!==undefined ? searchVal : document.getElementById('dashSearch').value || '').trim();
-    const tbody = document.getElementById('dashTable');
-    tbody.innerHTML = '';
-    let lowCount = 0;
-    const list = state.items.filter(it=> !q || it.name.includes(q));
-    document.getElementById('dashEmpty').style.display = state.items.length ? 'none' : 'block';
-    list.forEach(it=>{
-      const {totalIn, totalOut, balance} = itemTotals(it.id);
-      const isLow = it.min!==null && it.min!==undefined && balance <= Number(it.min);
-      if(it.min!==null && it.min!==undefined && balance <= Number(it.min)) lowCount++;
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${escapeHtml(it.name)}</td>
-        <td>${escapeHtml(it.unit)}</td>
-        <td>${fmt(totalIn)}</td>
-        <td>${fmt(totalOut)}</td>
-        <td><strong>${fmt(balance)}</strong></td>
-        <td>${isLow ? '<span class="tag low">أقل من الحد</span>' : '<span class="tag ok">جيد</span>'}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-    document.getElementById('statLow').textContent = lowCount;
-  }
-
-  // ---------- log ----------
-  function renderLog(){
-    const type = document.getElementById('logType').value;
-    const itemFilter = document.getElementById('logItem').value;
-    const from = document.getElementById('logFrom').value;
-    const to = document.getElementById('logTo').value;
-
-    let rows = [];
-    if(type!=='out') state.incoming.forEach(r=> rows.push({...r, kind:'in'}));
-    if(type!=='in') state.outgoing.forEach(r=> rows.push({...r, kind:'out'}));
-
-    rows = rows.filter(r=>{
-      if(itemFilter!=='all' && r.itemId!==itemFilter) return false;
-      if(from && r.date < from) return false;
-      if(to && r.date > to) return false;
-      return true;
-    });
-    rows.sort((a,b)=> b.date.localeCompare(a.date));
-
-    const tbody = document.getElementById('logTable');
-    tbody.innerHTML = '';
-    document.getElementById('logEmpty').style.display = rows.length ? 'none' : 'block';
-    rows.forEach(r=>{
-      const item = state.items.find(i=>i.id===r.itemId);
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${r.kind==='in' ? '<span class="tag in">وارد</span>' : '<span class="tag out">صادر</span>'}</td>
-        <td>${r.date}</td>
-        <td>${item?escapeHtml(item.name):'—'}</td>
-        <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
-        <td>${escapeHtml((r.kind==='in'?r.source:r.dest)||'—')}</td>
-        <td>${escapeHtml(r.note||'—')}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-
-    const inSum = rows.filter(r=>r.kind==='in').reduce((s,r)=>s+r.qty,0);
-    const outSum = rows.filter(r=>r.kind==='out').reduce((s,r)=>s+r.qty,0);
-    document.getElementById('logSummary').textContent =
-      `عدد الحركات: ${rows.length} — إجمالي الوارد: ${fmt(inSum)} — إجمالي الصادر: ${fmt(outSum)}`;
-
-    window._logRows = rows;
-  }
-
-  ['logType','logItem','logFrom','logTo'].forEach(id=>{
-    document.getElementById(id).addEventListener('change', renderLog);
-  });
-  document.getElementById('logReset').addEventListener('click', ()=>{
-    document.getElementById('logType').value = 'all';
-    document.getElementById('logItem').value = 'all';
-    document.getElementById('logFrom').value = '';
-    document.getElementById('logTo').value = '';
-    renderLog();
-  });
-
-  document.getElementById('exportCsv').addEventListener('click', ()=>{
-    const rows = window._logRows || [];
-    if(!rows.length){ toast('لا توجد بيانات للتصدير'); return; }
-    let csv = 'النوع,التاريخ,الصنف,الكمية,الوحدة,الجهة,ملاحظات\n';
-    rows.forEach(r=>{
-      const item = state.items.find(i=>i.id===r.itemId);
-      const line = [
-        r.kind==='in'?'وارد':'صادر',
-        r.date,
-        item?item.name:'',
-        r.qty,
-        item?item.unit:'',
-        (r.kind==='in'?r.source:r.dest)||'',
-        r.note||''
-      ].map(v=> `"${String(v).replace(/"/g,'""')}"`).join(',');
-      csv += line + '\n';
-    });
-    const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'سجل_المخزن.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  });
-
-  function escapeHtml(str){
-    if(str===undefined || str===null) return '';
-    return String(str).replace(/[&<>"']/g, s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
-  }
-
-  // initial render
-  renderItemSelects();
-  renderItemsTable();
-  renderIncomingTable();
-  renderOutgoingTable();
-  renderDash();
-  renderLog();
 })();
 </script>
 </body>
