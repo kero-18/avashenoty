@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مخزن دير الأنبا شنودة رئيس المتوحدين - الزرابي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#F6F0E4;
+    --parchment-deep:#EFE6D3;
+    --ink:#2B2118;
+    --ink-soft:#5C5142;
+    --maroon:#7A2A2E;
+    --maroon-deep:#5B1F22;
+    --gold:#B8862B;
+    --gold-soft:#D9B876;
+    --pine:#39584E;
+    --pine-soft:#4F7166;
+    --line:#DBCFB5;
+    --card:#FCF9F1;
+    --danger:#A23B33;
+    --radius-lg:18px;
+    --radius-sm:8px;
+  }
+  :root:not([data-theme="light"]){
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --parchment:#1D1712;
+      --parchment-deep:#241C15;
+      --ink:#EFE6D3;
+      --ink-soft:#C7B99B;
+      --card:#2A2119;
+      --line:#453A2A;
+      --maroon:#C1595D;
+      --maroon-deep:#9C4448;
+      --gold:#D9B876;
+      --gold-soft:#B8862B;
+      --pine:#6E9587;
+      --pine-soft:#7FA697;
+    }
+  }
+  :root[data-theme="dark"]{
+    --parchment:#1D1712;
+    --parchment-deep:#241C15;
+    --ink:#EFE6D3;
+    --ink-soft:#C7B99B;
+    --card:#2A2119;
+    --line:#453A2A;
+    --maroon:#C1595D;
+    --maroon-deep:#9C4448;
+    --gold:#D9B876;
+    --gold-soft:#B8862B;
+    --pine:#6E9587;
+    --pine-soft:#7FA697;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 500px at 15% -10%, var(--parchment-deep), transparent),
+      var(--parchment);
+    color:var(--ink);
+    font-family:'Tajawal', system-ui, sans-serif;
+    min-height:100vh;
+    padding-bottom:60px;
+  }
+
+  .crown{
+    text-align:center;
+    padding:34px 20px 18px;
+  }
+  .crown .mark{
+    width:52px;height:52px;margin:0 auto 12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .crown h1{
+    font-family:'Markazi Text', serif;
+    font-weight:700;
+    font-size:clamp(28px,4.4vw,42px);
+    color:var(--maroon-deep);
+    margin:0 0 6px;
+    letter-spacing:.5px;
+  }
+  .crown p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:15px;
+    font-weight:500;
+  }
+  .crown .rule{
+    width:120px;height:3px;margin:16px auto 0;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    border-radius:3px;
+  }
+
+  nav{
+    max-width:980px;
+    margin:22px auto 0;
+    padding:0 20px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  nav button{
+    font-family:'Tajawal',sans-serif;
+    font-size:15px;
+    font-weight:700;
+    padding:10px 20px;
+    border-radius:999px;
+    border:1.5px solid var(--line);
+    background:var(--card);
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:.18s ease;
+  }
+  nav button:hover{border-color:var(--gold-soft);color:var(--ink);}
+  nav button.active{
+    background:var(--maroon);
+    border-color:var(--maroon);
+    color:#F8EFE0;
+    box-shadow:0 4px 14px -6px rgba(122,42,46,.55);
+  }
+
+  main{
+    max-width:980px;
+    margin:30px auto;
+    padding:0 20px;
+  }
+  section{display:none;}
+  section.active{display:block; animation:rise .32s ease both;}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  h2.section-title{
+    font-family:'Markazi Text',serif;
+    font-size:26px;
+    font-weight:700;
+    color:var(--maroon-deep);
+    margin:0 0 18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  h2.section-title::before{
+    content:"";
+    display:inline-block;
+    width:8px;height:8px;
+    background:var(--gold);
+    border-radius:50%;
+  }
+
+  .grid-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:14px;
+    margin-bottom:26px;
+  }
+  .stat-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:18px 20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .stat-card .label{font-size:13.5px;color:var(--ink-soft);font-weight:700;}
+  .stat-card .value{
+    font-family:'Markazi Text',serif;
+    font-size:34px;
+    font-weight:700;
+    margin-top:4px;
+    color:var(--ink);
+  }
+  .stat-card.in{border-inline-start:4px solid var(--pine);}
+  .stat-card.out{border-inline-start:4px solid var(--maroon);}
+  .stat-card.items{border-inline-start:4px solid var(--gold);}
+  .stat-card.alert{border-inline-start:4px solid var(--danger);}
+
+  .panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:20px;
+    margin-bottom:20px;
+  }
+
+  form.grid-form{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:12px;
+    align-items:end;
+  }
+  label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink-soft);
+    margin-bottom:5px;
+  }
+  input, select, textarea{
+    width:100%;
+    font-family:'Tajawal',sans-serif;
+    font-size:14.5px;
+    padding:9px 11px;
+    border-radius:var(--radius-sm);
+    border:1.5px solid var(--line);
+    background:var(--parchment);
+    color:var(--ink);
+    outline:none;
+    transition:.15s;
+  }
+  input:focus, select:focus, textarea:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(184,134,43,.18);
+  }
+  textarea{resize:vertical;min-height:40px;}
+
+  .btn{
+    font-family:'Tajawal',sans-serif;
+    font-weight:700;
+    font-size:14.5px;
+    padding:10px 18px;
+    border-radius:var(--radius-sm);
+    border:none;
+    cursor:pointer;
+    transition:.15s;
+  }
+  .btn-primary{background:var(--maroon); color:#F8EFE0;}
+  .btn-primary:hover{background:var(--maroon-deep);}
+  .btn-pine{background:var(--pine); color:#F3F8F5;}
+  .btn-pine:hover{background:var(--pine-soft);}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line); color:var(--ink-soft);}
+  .btn-ghost:hover{border-color:var(--danger); color:var(--danger);}
+  .btn-sm{padding:6px 12px;font-size:13px;border-radius:7px;}
+
+  table{width:100%; border-collapse:collapse; font-size:14px;}
+  thead th{
+    text-align:right;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-weight:700;
+    padding:8px 10px;
+    border-bottom:2px solid var(--line);
+  }
+  tbody td{
+    padding:10px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink);
+  }
+  tbody tr:hover{background:rgba(184,134,43,.06);}
+  .tbl-wrap{overflow-x:auto;}
+  .tag{
+    display:inline-block;
+    font-size:12px;
+    font-weight:700;
+    padding:2px 9px;
+    border-radius:999px;
+  }
+  .tag.in{background:rgba(57,88,78,.15); color:var(--pine);}
+  .tag.out{background:rgba(122,42,46,.15); color:var(--maroon);}
+  .tag.low{background:rgba(162,59,51,.16); color:var(--danger);}
+  .tag.ok{background:rgba(57,88,78,.15); color:var(--pine);}
+
+  .empty{
+    text-align:center;
+    padding:34px 10px;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+
+  .filters{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;}
+  .filters select, .filters input{width:auto; min-width:140px;}
+
+  .toolbar{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px;}
+
+  .toast{
+    position:fixed; bottom:22px; right:50%; transform:translateX(50%);
+    background:var(--ink); color:var(--parchment);
+    padding:11px 22px; border-radius:999px; font-size:14px; font-weight:700;
+    opacity:0; pointer-events:none; transition:.25s;
+    box-shadow:0 10px 24px -8px rgba(0,0,0,.4);
+    z-index:50;
+  }
+  .toast.show{opacity:1; transform:translateX(50%) translateY(-6px);}
+
+  footer{
+    text-align:center; color:var(--ink-soft); font-size:12.5px; margin-top:40px; padding:0 20px;
+  }
+
+  @media (max-width:640px){
+    .toolbar{flex-direction:column; align-items:stretch;}
+  }
+</style>
+</head>
+<body>
+
+<div class="crown">
+  <div class="mark">
+    <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
+      <circle cx="23" cy="23" r="21" stroke="var(--gold)" stroke-width="1.5"/>
+      <path d="M23 10V36M14 16H32" stroke="var(--maroon)" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M17 21C17 21 20 18 23 21C26 24 29 21 29 21" stroke="var(--pine)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    </svg>
+  </div>
+  <h1>مخزن دير الأنبا شنودة رئيس المتوحدين</h1>
+  <p>الزرابي — نظام إدارة الوارد والصادر والأرصدة</p>
+  <div class="rule"></div>
+</div>
+
+<nav>
+  <button data-tab="dash" class="active">الرئيسية</button>
+  <button data-tab="items">الأصناف</button>
+  <button data-tab="incoming">إذن وارد</button>
+  <button data-tab="outgoing">إذن صادر</button>
+  <button data-tab="log">السجل الكامل</button>
+</nav>
+
+<main>
+
+  <!-- DASHBOARD -->
+  <section id="dash" class="active">
+    <h2 class="section-title">نظرة عامة</h2>
+    <div class="grid-cards">
+      <div class="stat-card in">
+        <div class="label">إجمالي الوارد (كل الحركات)</div>
+        <div class="value" id="statIn">0</div>
+      </div>
+      <div class="stat-card out">
+        <div class="label">إجمالي الصادر (كل الحركات)</div>
+        <div class="value" id="statOut">0</div>
+      </div>
+      <div class="stat-card items">
+        <div class="label">عدد الأصناف المسجلة</div>
+        <div class="value" id="statItems">0</div>
+      </div>
+      <div class="stat-card alert">
+        <div class="label">أصناف تحت حد التنبيه</div>
+        <div class="value" id="statLow">0</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="toolbar">
+        <h2 class="section-title" style="margin:0">أرصدة الأصناف الحالية</h2>
+        <input type="text" id="dashSearch" placeholder="بحث عن صنف..." style="max-width:220px;">
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>الصنف</th><th>الوحدة</th><th>إجمالي وارد</th><th>إجمالي صادر</th><th>الرصيد الحالي</th><th>الحالة</th>
+            </tr>
+          </thead>
+          <tbody id="dashTable"></tbody>
+        </table>
+      </div>
+      <div id="dashEmpty" class="empty" style="display:none;">لا توجد أصناف مسجلة بعد. ابدأ بإضافة صنف من تبويب «الأصناف».</div>
+    </div>
+  </section>
+
+  <!-- ITEMS -->
+  <section id="items">
+    <h2 class="section-title">إضافة صنف جديد</h2>
+    <div class="panel">
+      <form class="grid-form" id="itemForm">
+        <div>
+          <label>اسم الصنف</label>
+          <input type="text" id="itemName" placeholder="مثال: أرز" required>
+        </div>
+        <div>
+          <label>الوحدة</label>
+          <input type="text" id="itemUnit" placeholder="كجم، كرتونة، علبة..." required>
+        </div>
+        <div>
+          <label>الرصيد الافتتاحي</label>
+          <input type="number" id="itemOpening" min="0" step="any" value="0">
+        </div>
+        <div>
+          <label>حد التنبيه الأدنى (اختياري)</label>
+          <input type="number" id="itemMin" min="0" step="any" placeholder="0">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">إضافة الصنف</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="panel">
+      <div class="toolbar">
+        <h2 class="section-title" style="margin:0">كل الأصناف</h2>
+        <input type="text" id="itemsSearch" placeholder="بحث..." style="max-width:220px;">
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>الصنف</th><th>الوحدة</th><th>رصيد افتتاحي</th><th>حد التنبيه</th><th>الرصيد الحالي</th><th></th></tr></thead>
+          <tbody id="itemsTable"></tbody>
+        </table>
+      </div>
+      <div id="itemsEmpty" class="empty" style="display:none;">لم تتم إضافة أي أصناف بعد.</div>
+    </div>
+  </section>
+
+  <!-- INCOMING -->
+  <section id="incoming">
+    <h2 class="section-title">تسجيل إذن وارد</h2>
+    <div class="panel">
+      <form class="grid-form" id="inForm">
+        <div>
+          <label>الصنف</label>
+          <select id="inItem" required></select>
+        </div>
+        <div>
+          <label>الكمية</label>
+          <input type="number" id="inQty" min="0.01" step="any" required>
+        </div>
+        <div>
+          <label>التاريخ</label>
+          <input type="date" id="inDate" required>
+        </div>
+        <div>
+          <label>المصدر / الوارد من</label>
+          <input type="text" id="inSource" placeholder="اسم المُورّد أو الجهة">
+        </div>
+        <div>
+          <label>ملاحظات</label>
+          <input type="text" id="inNote" placeholder="اختياري">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-pine">تسجيل الوارد</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2 class="section-title" style="margin-bottom:14px">حركات الوارد</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>التاريخ</th><th>الصنف</th><th>الكمية</th><th>المصدر</th><th>ملاحظات</th><th></th></tr></thead>
+          <tbody id="inTable"></tbody>
+        </table>
+      </div>
+      <div id="inEmpty" class="empty" style="display:none;">لا توجد حركات وارد مسجلة.</div>
+    </div>
+  </section>
+
+  <!-- OUTGOING -->
+  <section id="outgoing">
+    <h2 class="section-title">تسجيل إذن صادر</h2>
+    <div class="panel">
+      <form class="grid-form" id="outForm">
+        <div>
+          <label>الصنف</label>
+          <select id="outItem" required></select>
+        </div>
+        <div>
+          <label>الكمية</label>
+          <input type="number" id="outQty" min="0.01" step="any" required>
+        </div>
+        <div>
+          <label>التاريخ</label>
+          <input type="date" id="outDate" required>
+        </div>
+        <div>
+          <label>صادر إلى / الجهة</label>
+          <input type="text" id="outDest" placeholder="اسم الجهة أو الشخص">
+        </div>
+        <div>
+          <label>ملاحظات</label>
+          <input type="text" id="outNote" placeholder="اختياري">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">تسجيل الصادر</button>
+        </div>
+      </form>
+      <div id="outWarning" style="display:none; margin-top:12px; color:var(--danger); font-size:13.5px; font-weight:700;"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="section-title" style="margin-bottom:14px">حركات الصادر</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>التاريخ</th><th>الصنف</th><th>الكمية</th><th>الجهة</th><th>ملاحظات</th><th></th></tr></thead>
+          <tbody id="outTable"></tbody>
+        </table>
+      </div>
+      <div id="outEmpty" class="empty" style="display:none;">لا توجد حركات صادر مسجلة.</div>
+    </div>
+  </section>
+
+  <!-- LOG -->
+  <section id="log">
+    <h2 class="section-title">السجل الكامل للحركات</h2>
+    <div class="panel">
+      <div class="filters">
+        <select id="logType">
+          <option value="all">كل الحركات</option>
+          <option value="in">الوارد فقط</option>
+          <option value="out">الصادر فقط</option>
+        </select>
+        <select id="logItem"><option value="all">كل الأصناف</option></select>
+        <input type="date" id="logFrom">
+        <input type="date" id="logTo">
+        <button class="btn btn-ghost btn-sm" id="logReset" type="button">إعادة الضبط</button>
+      </div>
+      <div class="toolbar">
+        <div style="color:var(--ink-soft); font-size:13.5px;" id="logSummary"></div>
+        <button class="btn btn-pine btn-sm" id="exportCsv" type="button">تصدير CSV</button>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>النوع</th><th>التاريخ</th><th>الصنف</th><th>الكمية</th><th>الجهة</th><th>ملاحظات</th></tr></thead>
+          <tbody id="logTable"></tbody>
+        </table>
+      </div>
+      <div id="logEmpty" class="empty" style="display:none;">لا توجد حركات مطابقة.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>البيانات محفوظة على هذا الجهاز داخل المتصفح فقط.</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  const STORE_KEY = 'zarabi_monastery_warehouse_v1';
+
+  function load(){
+    try{
+      const raw = localStorage.getItem(STORE_KEY);
+      if(raw) return JSON.parse(raw);
+    }catch(e){ console.error('load failed', e); }
+    return { items: [], incoming: [], outgoing: [] };
+  }
+  function save(){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
+    catch(e){ console.error('save failed', e); toast('تعذر حفظ البيانات على هذا الجهاز'); }
+  }
+
+  let state = load();
+  let uidCounter = Date.now();
+  function uid(){ return (uidCounter++).toString(36); }
+
+  // ---------- tabs ----------
+  const navButtons = document.querySelectorAll('nav button');
+  navButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      navButtons.forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      if(btn.dataset.tab==='dash') renderDash();
+      if(btn.dataset.tab==='log') renderLog();
+    });
+  });
+
+  function toast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(()=>t.classList.remove('show'), 2200);
+  }
+
+  function todayStr(){
+    const d = new Date();
+    return d.toISOString().slice(0,10);
+  }
+  document.getElementById('inDate').value = todayStr();
+  document.getElementById('outDate').value = todayStr();
+
+  // ---------- calculations ----------
+  function itemTotals(itemId){
+    const totalIn = state.incoming.filter(r=>r.itemId===itemId).reduce((s,r)=>s+r.qty,0);
+    const totalOut = state.outgoing.filter(r=>r.itemId===itemId).reduce((s,r)=>s+r.qty,0);
+    const item = state.items.find(i=>i.id===itemId);
+    const opening = item ? Number(item.opening||0) : 0;
+    return { totalIn, totalOut, balance: opening + totalIn - totalOut };
+  }
+
+  function fmt(n){
+    n = Math.round(n*100)/100;
+    return n.toLocaleString('ar-EG');
+  }
+
+  // ---------- items ----------
+  function renderItemSelects(){
+    const selects = [document.getElementById('inItem'), document.getElementById('outItem'), document.getElementById('logItem')];
+    const dashSearchVal = '';
+    selects.forEach(sel=>{
+      const isLog = sel.id==='logItem';
+      const current = sel.value;
+      sel.innerHTML = isLog ? '<option value="all">كل الأصناف</option>' : '';
+      state.items.forEach(it=>{
+        const opt = document.createElement('option');
+        opt.value = it.id;
+        opt.textContent = it.name + ' (' + it.unit + ')';
+        sel.appendChild(opt);
+      });
+      if(current) sel.value = current;
+    });
+  }
+
+  function renderItemsTable(filter){
+    const tbody = document.getElementById('itemsTable');
+    tbody.innerHTML = '';
+    const q = (filter||'').trim();
+    const list = state.items.filter(it=> !q || it.name.includes(q));
+    document.getElementById('itemsEmpty').style.display = list.length ? 'none':'block';
+    list.forEach(it=>{
+      const {balance} = itemTotals(it.id);
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${escapeHtml(it.name)}</td>
+        <td>${escapeHtml(it.unit)}</td>
+        <td>${fmt(it.opening||0)}</td>
+        <td>${it.min ? fmt(it.min) : '—'}</td>
+        <td><strong>${fmt(balance)}</strong></td>
+        <td><button class="btn btn-ghost btn-sm" data-del-item="${it.id}">حذف</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  document.getElementById('itemForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const name = document.getElementById('itemName').value.trim();
+    const unit = document.getElementById('itemUnit').value.trim();
+    const opening = Number(document.getElementById('itemOpening').value || 0);
+    const min = document.getElementById('itemMin').value;
+    if(!name || !unit) return;
+    state.items.push({ id: uid(), name, unit, opening, min: min ? Number(min) : null });
+    save();
+    e.target.reset();
+    document.getElementById('itemOpening').value = 0;
+    renderItemSelects();
+    renderItemsTable(document.getElementById('itemsSearch').value);
+    renderDash();
+    toast('تم إضافة الصنف');
+  });
+
+  document.getElementById('itemsTable').addEventListener('click', e=>{
+    const id = e.target.getAttribute('data-del-item');
+    if(!id) return;
+    const hasMoves = state.incoming.some(r=>r.itemId===id) || state.outgoing.some(r=>r.itemId===id);
+    if(hasMoves && !confirm('هذا الصنف له حركات وارد أو صادر مسجلة. حذفه سيحذف كل حركاته أيضًا. هل تريد المتابعة؟')) return;
+    state.items = state.items.filter(i=>i.id!==id);
+    state.incoming = state.incoming.filter(r=>r.itemId!==id);
+    state.outgoing = state.outgoing.filter(r=>r.itemId!==id);
+    save();
+    renderItemSelects();
+    renderItemsTable(document.getElementById('itemsSearch').value);
+    renderIncomingTable();
+    renderOutgoingTable();
+    renderDash();
+    toast('تم حذف الصنف');
+  });
+
+  document.getElementById('itemsSearch').addEventListener('input', e=> renderItemsTable(e.target.value));
+  document.getElementById('dashSearch').addEventListener('input', e=> renderDash(e.target.value));
+
+  // ---------- incoming ----------
+  document.getElementById('inForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const itemId = document.getElementById('inItem').value;
+    const qty = Number(document.getElementById('inQty').value);
+    const date = document.getElementById('inDate').value;
+    const source = document.getElementById('inSource').value.trim();
+    const note = document.getElementById('inNote').value.trim();
+    if(!itemId){ toast('أضف صنفًا أولًا من تبويب الأصناف'); return; }
+    if(!qty || qty<=0) return;
+    state.incoming.push({ id: uid(), itemId, qty, date, source, note });
+    save();
+    e.target.reset();
+    document.getElementById('inDate').value = todayStr();
+    renderIncomingTable();
+    renderDash();
+    toast('تم تسجيل الوارد');
+  });
+
+  function renderIncomingTable(){
+    const tbody = document.getElementById('inTable');
+    tbody.innerHTML = '';
+    const rows = [...state.incoming].sort((a,b)=> b.date.localeCompare(a.date));
+    document.getElementById('inEmpty').style.display = rows.length ? 'none' : 'block';
+    rows.forEach(r=>{
+      const item = state.items.find(i=>i.id===r.itemId);
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${r.date}</td>
+        <td>${item ? escapeHtml(item.name) : '—'}</td>
+        <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
+        <td>${escapeHtml(r.source||'—')}</td>
+        <td>${escapeHtml(r.note||'—')}</td>
+        <td><button class="btn btn-ghost btn-sm" data-del-in="${r.id}">حذف</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+  document.getElementById('inTable').addEventListener('click', e=>{
+    const id = e.target.getAttribute('data-del-in');
+    if(!id) return;
+    state.incoming = state.incoming.filter(r=>r.id!==id);
+    save();
+    renderIncomingTable();
+    renderDash();
+    toast('تم حذف الحركة');
+  });
+
+  // ---------- outgoing ----------
+  document.getElementById('outForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const itemId = document.getElementById('outItem').value;
+    const qty = Number(document.getElementById('outQty').value);
+    const date = document.getElementById('outDate').value;
+    const dest = document.getElementById('outDest').value.trim();
+    const note = document.getElementById('outNote').value.trim();
+    const warnEl = document.getElementById('outWarning');
+    warnEl.style.display = 'none';
+    if(!itemId){ toast('أضف صنفًا أولًا من تبويب الأصناف'); return; }
+    if(!qty || qty<=0) return;
+    const {balance} = itemTotals(itemId);
+    if(qty > balance){
+      warnEl.textContent = `تنبيه: الكمية المطلوب صرفها (${fmt(qty)}) أكبر من الرصيد الحالي (${fmt(balance)}). تم تسجيل الحركة رغم ذلك.`;
+      warnEl.style.display = 'block';
+    }
+    state.outgoing.push({ id: uid(), itemId, qty, date, dest, note });
+    save();
+    e.target.reset();
+    document.getElementById('outDate').value = todayStr();
+    renderOutgoingTable();
+    renderDash();
+    toast('تم تسجيل الصادر');
+  });
+
+  function renderOutgoingTable(){
+    const tbody = document.getElementById('outTable');
+    tbody.innerHTML = '';
+    const rows = [...state.outgoing].sort((a,b)=> b.date.localeCompare(a.date));
+    document.getElementById('outEmpty').style.display = rows.length ? 'none' : 'block';
+    rows.forEach(r=>{
+      const item = state.items.find(i=>i.id===r.itemId);
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${r.date}</td>
+        <td>${item ? escapeHtml(item.name) : '—'}</td>
+        <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
+        <td>${escapeHtml(r.dest||'—')}</td>
+        <td>${escapeHtml(r.note||'—')}</td>
+        <td><button class="btn btn-ghost btn-sm" data-del-out="${r.id}">حذف</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+  document.getElementById('outTable').addEventListener('click', e=>{
+    const id = e.target.getAttribute('data-del-out');
+    if(!id) return;
+    state.outgoing = state.outgoing.filter(r=>r.id!==id);
+    save();
+    renderOutgoingTable();
+    renderDash();
+    toast('تم حذف الحركة');
+  });
+
+  // ---------- dashboard ----------
+  function renderDash(searchVal){
+    const totalIn = state.incoming.reduce((s,r)=>s+r.qty,0);
+    const totalOut = state.outgoing.reduce((s,r)=>s+r.qty,0);
+    document.getElementById('statIn').textContent = fmt(totalIn);
+    document.getElementById('statOut').textContent = fmt(totalOut);
+    document.getElementById('statItems').textContent = state.items.length;
+
+    const q = (searchVal!==undefined ? searchVal : document.getElementById('dashSearch').value || '').trim();
+    const tbody = document.getElementById('dashTable');
+    tbody.innerHTML = '';
+    let lowCount = 0;
+    const list = state.items.filter(it=> !q || it.name.includes(q));
+    document.getElementById('dashEmpty').style.display = state.items.length ? 'none' : 'block';
+    list.forEach(it=>{
+      const {totalIn, totalOut, balance} = itemTotals(it.id);
+      const isLow = it.min!==null && it.min!==undefined && balance <= Number(it.min);
+      if(it.min!==null && it.min!==undefined && balance <= Number(it.min)) lowCount++;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${escapeHtml(it.name)}</td>
+        <td>${escapeHtml(it.unit)}</td>
+        <td>${fmt(totalIn)}</td>
+        <td>${fmt(totalOut)}</td>
+        <td><strong>${fmt(balance)}</strong></td>
+        <td>${isLow ? '<span class="tag low">أقل من الحد</span>' : '<span class="tag ok">جيد</span>'}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+    document.getElementById('statLow').textContent = lowCount;
+  }
+
+  // ---------- log ----------
+  function renderLog(){
+    const type = document.getElementById('logType').value;
+    const itemFilter = document.getElementById('logItem').value;
+    const from = document.getElementById('logFrom').value;
+    const to = document.getElementById('logTo').value;
+
+    let rows = [];
+    if(type!=='out') state.incoming.forEach(r=> rows.push({...r, kind:'in'}));
+    if(type!=='in') state.outgoing.forEach(r=> rows.push({...r, kind:'out'}));
+
+    rows = rows.filter(r=>{
+      if(itemFilter!=='all' && r.itemId!==itemFilter) return false;
+      if(from && r.date < from) return false;
+      if(to && r.date > to) return false;
+      return true;
+    });
+    rows.sort((a,b)=> b.date.localeCompare(a.date));
+
+    const tbody = document.getElementById('logTable');
+    tbody.innerHTML = '';
+    document.getElementById('logEmpty').style.display = rows.length ? 'none' : 'block';
+    rows.forEach(r=>{
+      const item = state.items.find(i=>i.id===r.itemId);
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${r.kind==='in' ? '<span class="tag in">وارد</span>' : '<span class="tag out">صادر</span>'}</td>
+        <td>${r.date}</td>
+        <td>${item?escapeHtml(item.name):'—'}</td>
+        <td>${fmt(r.qty)} ${item?escapeHtml(item.unit):''}</td>
+        <td>${escapeHtml((r.kind==='in'?r.source:r.dest)||'—')}</td>
+        <td>${escapeHtml(r.note||'—')}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    const inSum = rows.filter(r=>r.kind==='in').reduce((s,r)=>s+r.qty,0);
+    const outSum = rows.filter(r=>r.kind==='out').reduce((s,r)=>s+r.qty,0);
+    document.getElementById('logSummary').textContent =
+      `عدد الحركات: ${rows.length} — إجمالي الوارد: ${fmt(inSum)} — إجمالي الصادر: ${fmt(outSum)}`;
+
+    window._logRows = rows;
+  }
+
+  ['logType','logItem','logFrom','logTo'].forEach(id=>{
+    document.getElementById(id).addEventListener('change', renderLog);
+  });
+  document.getElementById('logReset').addEventListener('click', ()=>{
+    document.getElementById('logType').value = 'all';
+    document.getElementById('logItem').value = 'all';
+    document.getElementById('logFrom').value = '';
+    document.getElementById('logTo').value = '';
+    renderLog();
+  });
+
+  document.getElementById('exportCsv').addEventListener('click', ()=>{
+    const rows = window._logRows || [];
+    if(!rows.length){ toast('لا توجد بيانات للتصدير'); return; }
+    let csv = 'النوع,التاريخ,الصنف,الكمية,الوحدة,الجهة,ملاحظات\n';
+    rows.forEach(r=>{
+      const item = state.items.find(i=>i.id===r.itemId);
+      const line = [
+        r.kind==='in'?'وارد':'صادر',
+        r.date,
+        item?item.name:'',
+        r.qty,
+        item?item.unit:'',
+        (r.kind==='in'?r.source:r.dest)||'',
+        r.note||''
+      ].map(v=> `"${String(v).replace(/"/g,'""')}"`).join(',');
+      csv += line + '\n';
+    });
+    const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'سجل_المخزن.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  function escapeHtml(str){
+    if(str===undefined || str===null) return '';
+    return String(str).replace(/[&<>"']/g, s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+  }
+
+  // initial render
+  renderItemSelects();
+  renderItemsTable();
+  renderIncomingTable();
+  renderOutgoingTable();
+  renderDash();
+  renderLog();
+})();
+</script>
+</body>
+</html>
